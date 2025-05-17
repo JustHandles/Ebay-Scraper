@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../EbayScraper"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "basic130pointapp"
+	}
+}

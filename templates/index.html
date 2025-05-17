@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>eBay Sold Item Search</h1>
+    <form method="POST">
+        <input type="text" name="search_query" placeholder="Enter search term" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if items %}
+        <ul>
+            {% for item in items %}
+                <li style="display: flex; align-items: center;">
+                    <img src="{{ item['image_url'] }}" alt="{{ item['TITLE'] }}" style="width: 100px; height: auto; margin-right: 15px;">
+                    <div>
+                        <strong>{{ item['TITLE'] }}</strong><br>
+                        Price: ${{ item['Price'] }} CAD<br>
+                        Date of Sale: {{ item['Date of Sale'] }}<br>
+                        Bids: {{ item['|-Number of Bids-|'] }}<br>
+                        <a href="{{ item['link'] }}" target="_blank">View on eBay</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found. Try searching for something else.</p>
+    {% endif %}
+</body>
+</html>
